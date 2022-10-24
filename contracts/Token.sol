@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 
 // ERC20 Contract
-contract ERC20 is Context, IERC20, IERC20Metadata {
+contract VIAToken is Context, IERC20, IERC20Metadata {
     string private _name;
     string private _symbol;
     uint256 private _totalSupply;
@@ -118,22 +118,22 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * - `account` cannot be the zero address.
      * - `account` must have at least `amount` tokens.
      */
-    function _burn(address account, uint256 amount) internal virtual {
-        require(account != address(0), "ERC20: burn from the zero address");
+    // function _burn(address account, uint256 amount) internal virtual {
+    //     require(account != address(0), "ERC20: burn from the zero address");
 
-        _beforeTokenTransfer(account, address(0), amount);
+    //     _beforeTokenTransfer(account, address(0), amount);
 
-        uint256 accountBalance = _balances[account];
-        require(accountBalance >= amount, "ERC20: burn amount exceeds balance");
-        unchecked {
-            _balances[account] = accountBalance - amount;
-        }
-        _totalSupply -= amount;
+    //     uint256 accountBalance = _balances[account];
+    //     require(accountBalance >= amount, "ERC20: burn amount exceeds balance");
+    //     unchecked {
+    //         _balances[account] = accountBalance - amount;
+    //     }
+    //     _totalSupply -= amount;
 
-        emit Transfer(account, address(0), amount);
+    //     emit Transfer(account, address(0), amount);
 
-        _afterTokenTransfer(account, address(0), amount);
-    }
+    //     _afterTokenTransfer(account, address(0), amount);
+    // }
 
     /**
      * @dev Sets `amount` as the allowance of `spender` over the `owner` s tokens.
